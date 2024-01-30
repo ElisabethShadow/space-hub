@@ -19,8 +19,7 @@ import WeatherWidget from "@/components/widgets/WeatherWidget.vue";
 import QuoteWidget from "@/components/widgets/QuoteWidget.vue";
 import ToDoWidget from "@/components/widgets/ToDoWidget.vue";
 import SpaceWidget from "@/components/widgets/SpaceWidget.vue";
-import DailyRecipeWidget from "@/components/widgets/DailyRecipeWidget.vue"; // Corrected import statement
-
+import DailyRecipeWidget from '@/components/widgets/DailyRecipeWidget';
 export default {
   name: "DashboardPage",
   components: {
@@ -28,11 +27,10 @@ export default {
     QuoteWidget,
     ToDoWidget,
     SpaceWidget,
-    DailyRecipeWidget, // Use the corrected name here
+    DailyRecipeWidget,
   },
 };
 </script>
-
 
 <style lang="scss" scoped>
 .dashboard {
