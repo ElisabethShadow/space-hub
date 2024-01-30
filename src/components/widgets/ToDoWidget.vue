@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles.scss";
+@import "../../assets/styles/styles";
 
 .todo-widget {
   /* Widget container styles */

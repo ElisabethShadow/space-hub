@@ -93,3 +93,15 @@
 },
 };
 </script>
+
+<style lang="scss" scoped>
+@import "src/assets/styles/styles.scss";
+
+.weather-widget {
+  @include widget-container;
+
+  .weather-info {
+
+  }
+}
+</style>

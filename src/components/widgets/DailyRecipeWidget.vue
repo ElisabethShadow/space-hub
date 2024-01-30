@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "src/assets/styles.scss";
+@import "../../assets/styles/styles";
 
 .daily-recipe-widget {
   /* Widget container styles */

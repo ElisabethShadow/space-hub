@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "src/assets/styles.scss";
+@import "../../assets/styles/styles";
 
 .space-widget {
   /* Widget container styles */

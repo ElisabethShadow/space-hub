@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles.scss";
+@import "../../assets/styles/styles";
 
 .quote-widget {
   /* Widget container styles */

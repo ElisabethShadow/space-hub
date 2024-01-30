@@ -1,0 +1,106 @@
+
+$primary-color: #255f6f;
+$secondary-color: #ffffff;
+$font-family: 'Avenir', Helvetica, Arial, sans-serif;
+
+@mixin transition($args) {
+  transition: $args;
+}
+
+@mixin widget-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) { /* Mobile devices */
+  .widget {
+    padding: 0.5rem;
+    font-size: 14px;
+
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) { /* Tablets */
+  .widget {
+  }
+}
+
+@media (min-width: 769px) { /* Desktop */
+  .widget {
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family;
+  color: #333;
+  background-color: #f5f7fa;
+  background-image: linear-gradient(120deg, #e6f5ff 0%, #ffefea 100%);
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.weather-widget {
+  background-color: #e6eff194;
+
+  @include transition(.3s ease);
+
+  img {
+    max-width: 100px; // Adjust the size as needed
+    height: auto; // Maintain aspect ratio
+    display: block; // Use block to prevent inline default behavior
+    margin: 0 auto; // Center align if needed
+  }
+
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); // Adjust min width for mobile
+  gap: 20px;
+  padding: 20px;
+
+  @media (min-width: 601px) { // For larger screens
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.sidebar {
+  width: 200px;
+  background-color: $secondary-color; // using your secondary color
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  @include transition('all 0.3s ease'); // using your transition mixin
+
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    .icon {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      color: $primary-color; // using your primary color
+    }
+  }
+}
+
+
+
+
