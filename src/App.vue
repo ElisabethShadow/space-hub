@@ -20,25 +20,21 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 .app-container {
   display: flex;
-  min-height: 100vh; /* Full viewport height */
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  min-height: 100vh; /* Ensures the container fills the viewport height */
 }
 
-
-
 .sidebar {
-  width: 250px; // Adjust based on your design
-  // Additional sidebar styles
+  width: 200px; /* Adjust width as needed */
+  /* Additional sidebar styles */
 }
 
 .main-content {
   flex-grow: 1;
-  text-align: left; // Assuming main content is not centered
-  color: #2c3e50;
-  // Additional main content styles
+  padding: 20px;
+  /* Additional main content styles */
 }
 </style>
 
