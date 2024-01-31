@@ -40,8 +40,6 @@ export default {
   flex-wrap: wrap;
   gap: 20px; // Spacing between widgets
   padding: 20px; // Padding around the dashboard
-  border-radius: 20px;
-  background: linear-gradient(135deg, #3f717fb0 0%, #a5c3dc24 100%);
   justify-content: center;
 
   .header {

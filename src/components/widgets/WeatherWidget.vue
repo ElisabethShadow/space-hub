@@ -94,13 +94,16 @@
 };
 </script>
 
-<style lang="scss" scoped>
-@import "src/assets/styles/styles.scss";
-
+<style scoped lang="scss">
+@import "@/assets/scss/mixins.scss";
 .weather-widget {
-  @include widget-container;
+  //@include widget-container;
+
+
+  //@include widget-container;
 
   .weather-info {
+    display: flex;
 
   }
 }

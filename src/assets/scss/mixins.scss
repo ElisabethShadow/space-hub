@@ -1,0 +1,20 @@
+// mixins.scss
+@import "variables";
+@mixin transition($args: all 0.3s ease) {
+  transition: $args;
+}
+
+@mixin widget-container($bg-color: $secondary-color) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $bg-color;
+  border-radius: 20px;
+  padding: 1rem;
+  @include box-shadow-default; // Using another mixin for the box shadow
+}
+
+// A dedicated mixin for box shadows allows for easier adjustments and consistency
+@mixin box-shadow {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}

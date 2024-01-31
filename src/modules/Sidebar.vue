@@ -75,7 +75,7 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/styles/sidebar.scss";
+@import "../assets/scss/sidebar.scss";
 
 /* Existing sidebar and nav-link styles */
 

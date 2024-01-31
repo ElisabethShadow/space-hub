@@ -1,0 +1,23 @@
+/* Styling for the quote widget */
+@import "../variables";
+@import "../mixins";
+
+.quote-widget {
+  background-color: $secondary-color; // Set the background color
+  padding: $widget-padding; // Set padding using a variable
+  @include box-shadow; // Apply a box shadow using a mixin
+
+  h2 {
+    color: $primary-color; // Set the color of the heading
+  }
+
+  img {
+    max-width: 100%; // Set the maximum width of the image
+    height: auto; // Maintain aspect ratio by auto-adjusting the height
+    border-radius: 5px; // Add a border-radius for rounded corners
+  }
+
+  p {
+    color: darken($secondary-color, 10%); // Set the color of paragraphs, darkening the primary color by 10%
+  }
+}

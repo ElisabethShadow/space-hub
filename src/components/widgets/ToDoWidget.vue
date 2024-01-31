@@ -64,12 +64,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../assets/styles/styles";
+<style scoped lang="scss">
+@import "@/assets/scss/mixins.scss";
 
 .todo-widget {
   /* Widget container styles */
-  @include widget-container;
+  //@include widget-container;
   text-align: center;
 
   .widget-header {

@@ -42,17 +42,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/styles/styles";
+@import "@/assets/scss/mixins.scss";
+
 
 .quote-widget {
   /* Widget container styles */
-  @include widget-container;
+  //@include widget-container;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #eae1f0c7;
-  border-radius: 20px;
+
+
   padding: 1rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 

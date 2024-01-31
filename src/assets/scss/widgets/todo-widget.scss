@@ -1,0 +1,23 @@
+// _daily-recipe-widget.scss
+@import "../variables";
+@import "../mixins";
+
+.to-do-widget {
+  background-color: $secondary-color;
+  padding: $widget-padding;
+  @include box-shadow;
+
+  h2 {
+    color: $primary-color;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  p {
+    color: darken($secondary-color, 10%);
+  }
+}
