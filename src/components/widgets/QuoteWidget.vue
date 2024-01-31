@@ -25,7 +25,6 @@ export default {
           .get("https://api.quotable.io/random")
           .then((response) => {
             this.currentQuote = response.data; // Store the fetched quote in currentQuote
-            console.log('Current quote:', this.currentQuote);
 
           })
           .catch((error) => {

@@ -1,18 +1,16 @@
 <template>
   <div class="dashboard" id="dashboard">
-    <div class="header">
-      <h1 class=""></h1>
-    </div>
-    <WeatherWidget />
-    <QuoteWidget />
-    <ToDoWidget />
-    <SpaceWidget />
-    <DailyRecipeWidget />
-
-
-
-  </div>
+<div class="header">
+  <h1 class=""></h1>
+</div>
+<WeatherWidget />
+<QuoteWidget />
+<ToDoWidget />
+<SpaceWidget />
+<DailyRecipeWidget />
+</div>
 </template>
+
 
 <script>
 import WeatherWidget from "@/components/widgets/WeatherWidget.vue";
@@ -20,14 +18,18 @@ import QuoteWidget from "@/components/widgets/QuoteWidget.vue";
 import ToDoWidget from "@/components/widgets/ToDoWidget.vue";
 import SpaceWidget from "@/components/widgets/SpaceWidget.vue";
 import DailyRecipeWidget from '@/components/widgets/DailyRecipeWidget';
+import darkModeMixin from "@/mixins/darkModeMixin.js";
+
 export default {
   name: "DashboardPage",
+  mixins: [darkModeMixin],
   components: {
     WeatherWidget,
     QuoteWidget,
     ToDoWidget,
     SpaceWidget,
     DailyRecipeWidget,
+
   },
 };
 </script>

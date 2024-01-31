@@ -1,9 +1,7 @@
 <template>
-  <div id="app" class="app-container">
+  <div id="app">
+    <Dashboard />
     <Sidebar />
-    <div class="main-content">
-      <Dashboard />
-    </div>
   </div>
 </template>
 
@@ -21,20 +19,12 @@ export default {
 </script>
 
 <style>
-.app-container {
-  display: flex;
-  min-height: 100vh; /* Ensures the container fills the viewport height */
-}
-
-.sidebar {
-  width: 200px; /* Adjust width as needed */
-  /* Additional sidebar styles */
-}
-
-.main-content {
-  flex-grow: 1;
-  padding: 20px;
-  /* Additional main content styles */
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
-
