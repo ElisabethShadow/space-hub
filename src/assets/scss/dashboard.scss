@@ -1,0 +1,23 @@
+// dashboard.scss
+.dashboard {
+  display: grid;
+  // Add grid layout and responsive styles here
+}
+
+.widget {
+  @include widget-container;
+
+  // Responsive styles
+  @media (max-width: 600px) {
+    padding: 0.5rem;
+    font-size: $base-font-size;
+  }
+
+  @media (min-width: 601px) and (max-width: 768px) {
+    // Tablet specific styles
+  }
+
+  @media (min-width: 769px) {
+    // Desktop specific styles
+  }
+}
