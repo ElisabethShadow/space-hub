@@ -1,15 +1,31 @@
 <template>
   <div class="dashboard" id="dashboard">
-<div class="header">
-  <h1 class=""></h1>
-</div>
-<WeatherWidget />
-<QuoteWidget />
-<ToDoWidget />
-<SpaceWidget />
-<DailyRecipeWidget />
-</div>
+    <div class="sidebar">
+      <h1>Spacehub</h1>
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>Weather</li>
+          <li>Quotes</li>
+          <li>ToDo</li>
+          <li>Space</li>
+          <li>Recipes</li>
+        </ul>
+      </nav>
+      <div class="sidebar-todo-widget">
+        <ToDoWidget />
+      </div>
+    </div>
+    <div class="content">
+      <WeatherWidget />
+      <QuoteWidget />
+      <SpaceWidget />
+      <DailyRecipeWidget />
+    </div>
+  </div>
 </template>
+
+
 
 
 <script>
@@ -36,32 +52,34 @@ export default {
 
 <style lang="scss" scoped>
 .dashboard {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; // Spacing between widgets
-  padding: 20px; // Padding around the dashboard
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 30px;
+  padding: 20px;
+  min-height: 100vh;
+}
 
-  .header {
-    .title {
-      font-size: 24px;
-      font-weight: bold;
-      color: #333333;
-    }
+.sidebar {
+  padding: 20px;
+  background-color: #f4f4f4;
+  height: 100vh;
+}
 
-    .subtitle {
-      font-size: 18px;
-      color: #333333;
-    }
-  }
+.sidebar-header {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #123456;
+}
 
-  // A subtle gradient background
-  min-height: 100vh; // Ensure the dashboard covers the full view height
-
-  @media (min-width: 768px) {
-    .widget-container {
-      flex: 0 0 calc(50% - 10px); // Widgets take up half the width on larger screens
-    }
-  }
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 </style>
+
+
