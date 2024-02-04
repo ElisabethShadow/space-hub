@@ -71,8 +71,6 @@
 }
 },
 
-  // ...
-
   getIconUrl: function (condition) {
   // Mapping between weather conditions and icon URLs
 
@@ -97,14 +95,38 @@
 <style scoped lang="scss">
 @import "@/assets/scss/mixins.scss";
 .weather-widget {
-  //@include widget-container;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #FFFF;
+  max-width: 500px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 
-  //@include widget-container;
-
-  .weather-info {
-    display: flex;
-
+  img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
 }
+
+  .weather-info {
+
+    align-items: center;
+    text-align: center;
+
+  }
+
+  // Example media query for larger screens
+@media (min-width: 768px) {
+  .weather-info {
+    flex-direction: row;
+    justify-content: center; 
+    width: 80%;
+    gap: 20px;
+  }
+}
+
 </style>
