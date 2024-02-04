@@ -65,7 +65,6 @@ export default {
 .daily-recipe-widget {
   max-width: 500px;
   width: 100%;
-  margin: auto;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
