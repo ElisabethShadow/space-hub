@@ -46,12 +46,11 @@ export default {
 
 
 .quote-widget {
-  /* Widget container styles */
-  //@include widget-container;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: #fff;
 
 
   padding: 1rem;

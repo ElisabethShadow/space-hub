@@ -5,7 +5,6 @@
     <div class="header">
       <!-- Widget title -->
 
-      <h1 class="title">current weather</h1>
       <!-- Widget subtitle -->
 
       <p class="subtitle">{{ selectedCity }}</p>
@@ -100,9 +99,9 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #FFFF;
   max-width: 500px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  min-height: 200px;
+
 
   img {
     max-width: 100px;
@@ -123,7 +122,7 @@
 @media (min-width: 768px) {
   .weather-info {
     flex-direction: row;
-    justify-content: center; 
+    justify-content: center;
     width: 80%;
     gap: 20px;
   }

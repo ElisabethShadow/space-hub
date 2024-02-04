@@ -67,6 +67,7 @@ export default {
   width: 100%;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
 
   img {
     max-width: 100%;
@@ -86,8 +87,6 @@ export default {
     color: #333;
     text-align: justify;
   }
-}
-
   .header {
     /* Header styles */
     .title {
@@ -106,4 +105,7 @@ export default {
       padding: 20px;
     }
   }
+}
+
+
 </style>
