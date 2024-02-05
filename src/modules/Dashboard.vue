@@ -15,7 +15,7 @@
     <div class="content">
       <QuoteWidget />
       <ToDoWidget />
-      <BvgWidget/>
+
       <SpaceWidget />
       <DailyRecipeWidget />
 
@@ -33,7 +33,7 @@ import ToDoWidget from "@/components/widgets/ToDoWidget.vue";
 import SpaceWidget from "@/components/widgets/SpaceWidget.vue";
 import DailyRecipeWidget from '@/components/widgets/DailyRecipeWidget';
 import darkModeMixin from "@/mixins/darkModeMixin.js";
-import BvgWidget from "@/components/widgets/BvgWidget";
+
 
 export default {
   name: "DashboardPage",
@@ -44,7 +44,7 @@ export default {
     ToDoWidget,
     SpaceWidget,
     DailyRecipeWidget,
-    BvgWidget,
+
 
   },
 };
