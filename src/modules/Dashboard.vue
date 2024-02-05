@@ -4,23 +4,21 @@
       <h1>Spacehub</h1>
       <nav>
         <ul>
-          <li>Home</li>
-          <li>Weather</li>
-          <li>Quotes</li>
-          <li>ToDo</li>
-          <li>Space</li>
-          <li>Recipes</li>
+          <li class="active">Home</li>
+
         </ul>
       </nav>
-      <div class="sidebar-todo-widget">
-        <ToDoWidget />
+      <div class="sidebar-weather-widget">
+        <WeatherWidget />
       </div>
     </div>
     <div class="content">
-      <WeatherWidget />
       <QuoteWidget />
+      <ToDoWidget />
+      <BvgWidget/>
       <SpaceWidget />
       <DailyRecipeWidget />
+
     </div>
   </div>
 </template>
@@ -35,6 +33,7 @@ import ToDoWidget from "@/components/widgets/ToDoWidget.vue";
 import SpaceWidget from "@/components/widgets/SpaceWidget.vue";
 import DailyRecipeWidget from '@/components/widgets/DailyRecipeWidget';
 import darkModeMixin from "@/mixins/darkModeMixin.js";
+import BvgWidget from "@/components/widgets/BvgWidget";
 
 export default {
   name: "DashboardPage",
@@ -45,6 +44,7 @@ export default {
     ToDoWidget,
     SpaceWidget,
     DailyRecipeWidget,
+    BvgWidget,
 
   },
 };
@@ -60,9 +60,17 @@ export default {
 }
 
 .sidebar {
-  padding: 20px;
-  background-color: #f4f4f4;
+
+  background-color: rgb(255, 255, 255);
   height: 100vh;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+
+
+  .sidebar-weather-widget {
+    margin-top: 20px; /* Adjust as needed */
+  }
 }
 
 .sidebar-header {
@@ -78,7 +86,7 @@ export default {
 .content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 30px;
 }
 </style>
 

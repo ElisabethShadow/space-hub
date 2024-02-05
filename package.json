@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^1.6.7",
     "core-js": "^3.8.3",
+    "hafas-client": "^6.2.1",
     "vue": "^3.2.13",
     "vue-router": "^4.2.5",
     "vuex": "^4.1.0",
@@ -48,5 +49,10 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "description": "Interactive Vue.js Dashboard for Spacesquad Web Frontend Task",
+  "main": "babel.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
