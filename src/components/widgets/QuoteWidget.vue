@@ -51,6 +51,9 @@ export default {
   flex-direction: column;
   align-items: center;
   background: #fff;
+  width: fit-content;
+  border-radius: 5px;
+
 
 
   padding: 1rem;
@@ -67,7 +70,9 @@ export default {
   cite {
     /* Quote author styles */
     display: block;
-    margin-top: 10px;
+    padding: 20px;
+    color: #999;
+
   }
 }
 </style>
