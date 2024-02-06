@@ -19,80 +19,79 @@
 
       <p class="condition">{{ condition }}</p>
       <!-- Weather icon -->
+      <!-- Using <i> tag for Weather Icon -->
+      <i :class="getIconClass(condition)" aria-hidden="true"></i>
 
-      <img :src="getIconUrl(condition)" alt="Weather Icon" />
     </div>
   </div>
 </template>
 
 <script>
-  import axios from "axios";
+import axios from "axios";
 
-  export default {
+export default {
   name: "WeatherWidget",
   data() {
-  return {
-  selectedCity: "Berlin", // Default selected city
-  temperature: null, // Holds the temperature
-  condition: "", // Holds the weather condition
-};
-},
+    return {
+      selectedCity: "Berlin", // Default selected city
+      temperature: null, // Holds the temperature
+      condition: "", // Holds the weather condition
+    };
+  },
   mounted() {
-  // Fetch weather data on component mount
-  this.fetchWeather();
-},
+    // Fetch weather data on component mount
+    this.fetchWeather();
+  },
   methods: {
-  async fetchWeather() {
-  const address = "Spacesquad Headquarters"; // The address for weather Ringbahnstrasse 42
+    async fetchWeather() {
+      const address = "Spacesquad Headquarters"; // The address for weather Ringbahnstrasse 42
 
-  const geocodingApiKey = "AIzaSyCfiiwcTnZK9qWuf2ZCg3Yj0tAyOEo0h4M"; // Google Maps Geocoding API Key
-  const geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${geocodingApiKey}`;
+      const geocodingApiKey = "AIzaSyCfiiwcTnZK9qWuf2ZCg3Yj0tAyOEo0h4M"; // Google Maps Geocoding API Key
+      const geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${geocodingApiKey}`;
 
-  try {
-  // Fetch geocoding data to get latitude and longitude for the address
-  const geocodingResponse = await axios.get(geocodingUrl);
-  const location = geocodingResponse.data.results[0].geometry.location;
-  const latitude = location.lat;
-  const longitude = location.lng;
+      try {
+        // Fetch geocoding data to get latitude and longitude for the address
+        const geocodingResponse = await axios.get(geocodingUrl);
+        const location = geocodingResponse.data.results[0].geometry.location;
+        const latitude = location.lat;
+        const longitude = location.lng;
 
-  const weatherApiKey = "bb4f620b0426d10e9201273f87e3b7f2";
-  const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}&units=metric`;
+        const weatherApiKey = "bb4f620b0426d10e9201273f87e3b7f2";
+        const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}&units=metric`;
 
-  // Update the data properties with the fetched weather information
-  const weatherResponse = await axios.get(weatherUrl);
-  const weatherData = weatherResponse.data;
+        // Fetch the weather data using the obtained latitude and longitude
+        const weatherResponse = await axios.get(weatherUrl);
+        const weatherData = weatherResponse.data;
 
-  this.selectedCity = address;
-  this.temperature = weatherData.main.temp;
-  this.condition = weatherData.weather[0].main;
-} catch (error) {
-  console.error("Failed to fetch weather data:", error);
-}
-},
-
-  getIconUrl: function (condition) {
-  // Mapping between weather conditions and icon URLs
-
-  const iconMapping = {
-  Snow: require("@/assets/icons/snow.png"),
-  Cloudy: require("@/assets/icons/cloudy.png"),
-  Rain: require("@/assets/icons/rainy.png"),
-  Clear: require("@/assets/icons/sunny.png"),
-  Thunderstorm: require("@/assets/icons/thunderstorm.png"),
-  Sunny: require("@/assets/icons/sunny.png"),
-  Night: require("@/assets/icons/moon_star.png"),
-  Morning: require("@/assets/icons/morning.png"),
-};
-  // Return the corresponding icon URL based on the weather condition
-
-  return iconMapping[condition] || require("@/assets/icons/rainbow.png");
-},
-},
+        this.selectedCity = address; // Updating the city
+        this.temperature = weatherData.main.temp; // Updating temperature
+        this.condition = weatherData.weather[0].main; // Updating condition
+      } catch (error) {
+        console.error("Failed to fetch weather data:", error);
+      }
+    },
+    getIconClass(condition) {
+      const iconMapping = {
+        Snow: 'wi-snow',
+        Cloudy: 'wi-cloudy',
+        Rain: 'wi-rain',
+        Clear: 'wi-day-sunny',
+        Thunderstorm: 'wi-thunderstorm',
+        Sunny: 'wi-day-sunny',
+        Night: 'wi-night-clear',
+        Morning: 'wi-day-sunny',
+      };
+      return `wi ${iconMapping[condition] || 'wi-day-cloudy'}`;
+    },
+  },
 };
 </script>
 
+
 <style scoped lang="scss">
 @import "@/assets/scss/mixins.scss";
+@import "@/assets/icons/weather-icons/scss/sass/weather-icons";
+
 .weather-widget {
 
   display: flex;
@@ -101,6 +100,8 @@
   padding: 20px;
   max-width: 500px;
   min-height: 200px;
+  background: #fff;
+  border-radius: 5px;
 
 
   img {
@@ -115,6 +116,19 @@
 
     align-items: center;
     text-align: center;
+    color: #999;
+
+    .city {
+      font-size: 24px;
+      margin: 10px 0;
+      color: #46c6fa;
+    }
+
+    .wi {
+      font-size: 48px;
+      margin: 10px 0;
+      color: #46c6fa;
+    }
 
   }
 

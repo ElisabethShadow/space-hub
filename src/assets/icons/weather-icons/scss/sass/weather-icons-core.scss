@@ -5,16 +5,17 @@ $wi-css-prefix:                  wi !default;
 $wi-font-family:                 weathericons !default;
 
 @font-face {
-    font-family: '#{$wi-font-family}';
-    src: url('#{$wi-path}/#{$wi-font-family}-regular-webfont.eot');
-    src: url('#{$wi-path}/#{$wi-font-family}-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('#{$wi-path}/#{$wi-font-family}-regular-webfont.woff2') format('woff2'),
-         url('#{$wi-path}/#{$wi-font-family}-regular-webfont.woff') format('woff'),
-         url('#{$wi-path}/#{$wi-font-family}-regular-webfont.ttf') format('truetype'),
-         url('#{$wi-path}/#{$wi-font-family}-regular-webfont.svg#weather_iconsregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'weathericons';
+  src: url('~@/assets/icons/weather-icons/font/weathericons-regular-webfont.eot');
+  src: url('~@/assets/icons/weather-icons/font/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('~@/assets/icons/weather-icons/font/weathericons-regular-webfont.woff2') format('woff2'),
+  url('~@/assets/icons/weather-icons/font/weathericons-regular-webfont.woff') format('woff'),
+  url('~@/assets/icons/weather-icons/font/weathericons-regular-webfont.ttf') format('truetype'),
+  url('~@/assets/icons/weather-icons/font/weathericons-regular-webfont.svg#weathericons') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
+
 
 .#{$wi-css-prefix} {
   display: inline-block;
