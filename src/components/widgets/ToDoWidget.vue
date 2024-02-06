@@ -1,157 +1,118 @@
 <template>
   <div class="todo-widget">
-    <div class="widget-header">
-      <h1 class="widget-title">Today's Tasks</h1>
-      <div class="task-entry" v-for="(task, index) in tasks" :key="index">
-        <button class="action-btn" @click="handleTaskAction(index)" :disabled="!task.text && !task.added">
-          <span v-if="!task.added">+</span>
-          <span v-else-if="!task.finished" class="empty-circle"></span>
-          <span v-else class="finished-icon">✓</span>
-        </button>
-        <input type="text" v-model="task.text" placeholder="Enter your task" class="task-input" :class="{ 'task-added': task.added }" :readonly="task.added || task.finished"/>
+    <h2>To Do List</h2>
+    <div class="tasks">
+      <div
+          v-for="task in tasks"
+          :key="task.id"
+          class="task-item"
+      >
+        <span>{{ task.title }}</span>
+        <button class="delete-btn" @click="removeTask(task.id)">X</button>
       </div>
-      <button class="add-task-btn" @click="addNewTask">Add Task</button>
+    </div>
+    <div class="add-task">
+      <input
+          type="text"
+          v-model="newTask"
+          @keyup.enter="addTask"
+          placeholder="Add new task"
+          class="task-input"
+      />
+      <button class="add-btn" @click="addTask">Add</button>
     </div>
   </div>
 </template>
 
-
 <script>
 export default {
-  name: "TodoWidget",
+  name: "ToDoWidget",
   data() {
     return {
-      tasks: [{ text: "", added: false, finished: false }],
+      newTask: "",
+      tasks: [],
+      nextTaskId: 1
     };
   },
   methods: {
-    handleTaskAction(index) {
-      const task = this.tasks[index];
-      if (!task.added && task.text.trim()) {
-        // Directly update the task object at the specified index
-        this.tasks[index] = { ...task, added: true };
-      } else if (task.added && !task.finished) {
-        // Directly update the task object at the specified index
-        this.tasks[index] = { ...task, finished: true };
+    addTask() {
+      if (this.newTask.trim() !== "") {
+        this.tasks.push({
+          id: this.nextTaskId++,
+          title: this.newTask.trim()
+        });
+        this.newTask = ""; // Clear input field after adding the task
       }
-      // Vue 3's reactivity system will react to these changes automatically
     },
-    addNewTask() {
-      this.tasks.push({ text: "", added: false, finished: false });
-    },
-  },
+    removeTask(taskId) {
+      this.tasks = this.tasks.filter(task => task.id !== taskId);
+    }
+  }
 };
 </script>
 
-
-
-
-<style scoped lang="scss">
-@import "@/assets/scss/mixins.scss";
-
+<style lang="scss" scoped>
 .todo-widget {
-  /* Widget container styles */
-  //@include widget-container;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffffbf;
-  border-radius: 5px;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
 
+  h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #333;
+  }
 
-  .widget-header {
-    /* Widget header styles */
-    position: relative;
+  .tasks {
+    margin-bottom: 1rem;
 
-    .widget-title {
-      /* Widget title styles */
-      font-size: 24px;
-      font-weight: bold;
-      color: #333333;
-      text-align: center;
-    }
-
-    .task-entry {
-      /* Task entry section styles */
+    .task-item {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      color: #ffffffbf;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      background-color: #ff9a6c38;
+      border-radius: 4px;
+
+      .delete-btn {
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #888;
+        font-weight: bold;
+      }
+
+      .delete-btn:hover {
+        color: red;
+      }
     }
+  }
+
+  .add-task {
+    display: flex;
 
     .task-input {
-      /* Task input field styles */
-
-      padding: 10px;
-      border: transparent;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      color: #333333;
-      background-color: transparent;
-
-      &.task-added {
-        /* Task input field styles when a task is added */
-        background-color: #ffffffbf;
-        color: #333333;
-      }
+      flex-grow: 1;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-right: 0.5rem;
     }
 
-    .add-task-btn {
-
-
-      background-color: #ef7434cf;
-      color: #fff;
-      border: transparent;
-      padding: 5px 27px;
-      font-size: 16px;
+    .add-btn {
+      padding: 0.5rem;
+      background-color: #fa9346;
+      color: white;
+      border: none;
+      border-radius: 4px;
       cursor: pointer;
-      border-radius: 1px;
-      margin: 20px;
-
 
       &:hover {
-        background-color: darken(#f0f0f0, 10%);
+        background-color: darken(#fa9346, 5%);
       }
-    }
-
-
-    .action-btn {
-      /* Action button styles */
-      background-color: transparent;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #333333;
-      font-size: 24px;
-      cursor: pointer;
-      transition: color 0.3s ease;
-      padding: 20px;
-
-      &:hover:not(:disabled) {
-        /* Action button styles on hover */
-        color: darken(#7f8c8d, 10%);
-      }
-
-      &:disabled {
-        /* Action button styles when disabled */
-        color: #ccc;
-        cursor: not-allowed;
-      }
-    }
-
-    .empty-circle {
-      /* Empty circle styles */
-      width: 15px;
-      height: 15px;
-      border: 2px solid currentColor;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .finished-icon {
-      /* Finished icon styles */
-      color: #333333;
     }
   }
 }
