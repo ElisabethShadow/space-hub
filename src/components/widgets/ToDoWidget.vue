@@ -55,7 +55,6 @@ export default {
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffffbf;
-  width: fit-content;
   border-radius: 5px;
 
 
@@ -77,16 +76,18 @@ export default {
       justify-content: center;
       align-items: center;
       gap: 10px;
+      color: #ffffffbf;
     }
 
     .task-input {
       /* Task input field styles */
 
       padding: 10px;
-      border: 2px solid #ffffffbf;
+      border: transparent;
       font-size: 16px;
       transition: all 0.3s ease;
       color: #333333;
+      background-color: transparent;
 
       &.task-added {
         /* Task input field styles when a task is added */
@@ -97,13 +98,15 @@ export default {
 
     .add-task-btn {
 
-      margin-top: 10px;
+
       background-color: #ef7434cf;
       color: #fff;
-      border: 2px solid #ffffffbf;
-      padding: 10px 50px;
+      border: transparent;
+      padding: 5px 27px;
       font-size: 16px;
       cursor: pointer;
+      border-radius: 1px;
+      margin: 20px;
 
 
       &:hover {
@@ -123,6 +126,7 @@ export default {
       font-size: 24px;
       cursor: pointer;
       transition: color 0.3s ease;
+      padding: 20px;
 
       &:hover:not(:disabled) {
         /* Action button styles on hover */
