@@ -1,14 +1,14 @@
 <template>
+  <!-- App component -->
   <div id="app">
+    <!-- Router view for rendering different views based on routes -->
     <router-view></router-view>
-
-        </div>
+  </div>
 </template>
+
 <script>
-
-
 export default {
-  name: 'App',
+  name: 'App', // Name of the component
 
 }
 </script>
@@ -26,6 +26,4 @@ export default {
 .main-container {
   display: grid;
 }
-
-
 </style>
