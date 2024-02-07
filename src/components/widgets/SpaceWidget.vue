@@ -28,7 +28,8 @@ export default {
   methods: {
     async fetchSpaceData() {
       try {
-        const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=PGWM7eu0mkpachg39Ku6WElA6wJnW9EXVKcbswCm`);
+        const apiKey = process.env.VUE_APP_SPACE_API_KEY;
+        const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);
         const data = await response.json();
         this.spaceData = data;
       } catch (error) {

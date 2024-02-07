@@ -37,7 +37,7 @@ export default {
     async fetchWeather() {
       const address = "Spacesquad Headquarters"; // The address for weather Ringbahnstrasse 42
 
-      const geocodingApiKey = "AIzaSyCfiiwcTnZK9qWuf2ZCg3Yj0tAyOEo0h4M"; // Google Maps Geocoding API Key
+      const geocodingApiKey = process.env.VUE_APP_WEATHER_GEO_API_KEY; // Google Maps Geocoding API Key
       const geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${geocodingApiKey}`;
 
       try {
@@ -47,7 +47,7 @@ export default {
         const latitude = location.lat;
         const longitude = location.lng;
 
-        const weatherApiKey = "bb4f620b0426d10e9201273f87e3b7f2";
+        const weatherApiKey = process.env.VUE_APP_WEATHER_API_KEY;
         const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weatherApiKey}&units=metric`;
 
         // Fetch the weather data using the obtained latitude and longitude

@@ -36,7 +36,7 @@ export default {
   methods: {
     async fetchDailyRecipe() {
       // API key
-      const apiKey = "35f38cd8b5184b9ab3c31810ad82a95b";
+      const apiKey = process.env.VUE_APP_RECIPE_API_KEY;
       const url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1`;
       try {
         // Send a GET request to fetch a random recipe
