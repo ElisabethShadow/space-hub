@@ -15,28 +15,28 @@ export default {
   name: "QuoteWidget",
   data() {
     return {
-      currentQuote: null, // Holds the current quote
+      currentQuote: null,
     };
   },
   methods: {
+    // Function to fetch a random quote
     fetchQuote() {
-      // Fetch a random quote from the API
       axios
           .get("https://api.quotable.io/random")
           .then((response) => {
-            this.currentQuote = response.data; // Store the fetched quote in currentQuote
-
+            this.currentQuote = response.data;
           })
           .catch((error) => {
-            console.error("Error fetching quote:", error); // Handle any errors
+            console.error("Error fetching quote:", error);
           });
     },
   },
   mounted() {
-    // Fetch a quote on component mount
+    // Fetch a quote when the component is mounted
     this.fetchQuote();
-    // Fetch a new quote every 10 minutes using setInterval
-    setInterval(this.fetchQuote, 600000); // 600000 ms = 10 minutes
+
+    // Fetch a new quote every 10 minutes (600,000 ms)
+    setInterval(this.fetchQuote, 600000);
   },
 };
 </script>
@@ -44,23 +44,19 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scss/mixins.scss";
 
-
 .quote-widget {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+  background: rgb(250 147 70 / 82%);
   width: fit-content;
   border-radius: 5px;
-
-
-
+  max-width: 150%;
   padding: 1rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 
   blockquote {
-    /* Quote styles */
     text-align: center;
     font-size: 18px;
     font-weight: bold;
@@ -68,11 +64,9 @@ export default {
   }
 
   cite {
-    /* Quote author styles */
     display: block;
     padding: 20px;
     color: #999;
-
   }
 }
 </style>

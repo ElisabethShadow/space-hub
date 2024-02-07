@@ -1,27 +1,18 @@
 <template>
+  <!-- Weather Widget component -->
   <div class="weather-widget">
-    <!-- Weather Widget component -->
-
+    <!-- Header section displaying selected city -->
     <div class="header">
-      <!-- Widget title -->
-
-      <!-- Widget subtitle -->
-
       <p class="subtitle">{{ selectedCity }}</p>
     </div>
     <!-- Weather information section -->
-
     <div class="weather-info">
-      <!-- Temperature display -->
-
+      <!-- Display temperature -->
       <p class="temperature">{{ temperature }}°C</p>
-      <!-- Condition display -->
-
+      <!-- Display weather condition -->
       <p class="condition">{{ condition }}</p>
-      <!-- Weather icon -->
-      <!-- Using <i> tag for Weather Icon -->
+      <!-- Display weather icon based on condition -->
       <i :class="getIconClass(condition)" aria-hidden="true"></i>
-
     </div>
   </div>
 </template>
@@ -87,22 +78,22 @@ export default {
 };
 </script>
 
-
 <style scoped lang="scss">
 @import "@/assets/scss/mixins.scss";
 @import "@/assets/icons/weather-icons/scss/sass/weather-icons";
 
 .weather-widget {
-
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  max-width: 500px;
+  max-width: 100%;
   min-height: 200px;
-  background: #fff;
+  background: #79c8f3fa;
   border-radius: 5px;
-
+  color: #FFF;
+  font-weight: bold;
+  font-size: 18px;
 
   img {
     max-width: 100px;
@@ -112,27 +103,26 @@ export default {
   }
 }
 
-  .weather-info {
+.weather-info {
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  font-weight: normal;
 
-    align-items: center;
-    text-align: center;
-    color: #999;
-
-    .city {
-      font-size: 24px;
-      margin: 10px 0;
-      color: #46c6fa;
-    }
-
-    .wi {
-      font-size: 48px;
-      margin: 10px 0;
-      color: #46c6fa;
-    }
-
+  .city {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #ffffff;
   }
 
-  // Example media query for larger screens
+  .wi {
+    font-size: 48px;
+    margin: 10px 0;
+    color: #ffffff;
+  }
+}
+
+// Example media query for larger screens
 @media (min-width: 768px) {
   .weather-info {
     flex-direction: row;
@@ -141,5 +131,4 @@ export default {
     gap: 20px;
   }
 }
-
 </style>
