@@ -16,17 +16,20 @@
           <li class="sidebar-link active">
             <router-link to="/">Home</router-link>
           </li>
-          <!-- Links to Reports and Settings pages -->
+          <!-- Links to Scroll to Widget pages -->
           <li class="sidebar-link">
             <a href="#" @click="scrollToWidget('toDoWidget')">Tasks</a></li>
 
           <li class="sidebar-link">
             <a href="#" @click="scrollToWidget('spaceWidget')">Space</a></li>
+
           <li class="sidebar-link">
             <a href="#" @click="scrollToWidget('weatherWidget')">Weather</a></li>
 
           <li class="sidebar-link">
-            <a href="#" @click="scrollToWidget('quoteWidget')">Quote</a></li><li class="sidebar-link">
+            <a href="#" @click="scrollToWidget('quoteWidget')">Quote</a></li>
+
+          <li class="sidebar-link">
           <a href="#" @click="scrollToWidget('dailyRecipeWidget')">Recipe</a></li>
         </ul>
       </nav>
@@ -45,7 +48,6 @@
     <div class="content">
       <!-- Quote Widget -->
       <QuoteWidget class="widget quote-widget" ref="quoteWidget" />
-
       <!-- To-Do Widget -->
       <ToDoWidget class="widget to-do-widget" ref="toDoWidget" />
       <!-- Weather Widget -->
@@ -141,6 +143,7 @@ export default {
       list-style-type: none;
       padding: 0;
       font-size: 18px;
+      margin: 20px;
 
       /* Sidebar link styling */
       .sidebar-link {
@@ -167,7 +170,7 @@ export default {
     /* Sidebar icon styling */
     .sidebar-icon {
       display: block;
-      margin: 150px auto;
+      margin: 110px auto;
       width: 80px;
     }
   }
@@ -271,12 +274,12 @@ export default {
   @media (max-width: 430px) {
     /* Further responsive design for very small screens */
     .content {
-      grid-template-columns: 1fr;
+      grid-template-columns: 2fr;
     }
 
     /* Widget layout for very small screens */
     .widget {
-      grid-column: span 1;
+      grid-column: span 2;
     }
   }
 }
